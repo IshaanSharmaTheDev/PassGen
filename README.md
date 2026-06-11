@@ -1,3 +1,7 @@
+## 🚀 Live Demo: [PassGen](https://ishaansharmathedev.github.io/PassGen/)
+
+> Try it in your browser: **[https://ishaansharmathedev.github.io/PassGen/](https://ishaansharmathedev.github.io/PassGen/)**
+
 # PassGen
 
 A cryptographically secure password generator with strength analysis, bulk generation, and history.
