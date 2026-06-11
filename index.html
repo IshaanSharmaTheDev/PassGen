@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>PassGen — Secure Password Generator</title><link rel="stylesheet" href="styles/main.css"/></head>
+<body>
+<div id="app">
+  <header class="topbar"><span class="logo">🔐 PassGen</span></header>
+  <div class="main">
+    <div class="output-card">
+      <div id="password-display" class="password-display">Click Generate</div>
+      <div class="output-actions">
+        <button id="btn-copy">Copy</button>
+        <button id="btn-generate" class="btn-primary">Generate</button>
+        <button id="btn-refresh">↻</button>
+      </div>
+      <div class="strength-row">
+        <div class="strength-bar"><div id="strength-fill"></div></div>
+        <span id="strength-label">—</span>
+      </div>
+      <div id="entropy-display" class="entropy"></div>
+    </div>
+
+    <div class="config-card">
+      <div class="config-row">
+        <label>Length: <strong id="len-display">16</strong></label>
+        <input type="range" id="len-slider" min="4" max="128" value="16"/>
+      </div>
+      <div class="checkboxes">
+        <label><input type="checkbox" id="opt-upper" checked/> Uppercase (A-Z)</label>
+        <label><input type="checkbox" id="opt-lower" checked/> Lowercase (a-z)</label>
+        <label><input type="checkbox" id="opt-digits" checked/> Digits (0-9)</label>
+        <label><input type="checkbox" id="opt-symbols" checked/> Symbols (!@#…)</label>
+        <label><input type="checkbox" id="opt-ambiguous"/> Exclude ambiguous (0,O,l,1)</label>
+      </div>
+      <div class="config-row">
+        <label>Custom chars:</label>
+        <input type="text" id="custom-chars" placeholder="Add extra characters…" class="custom-input"/>
+      </div>
+      <div class="config-row">
+        <label>Mode:</label>
+        <select id="mode-select">
+          <option value="random">Random</option>
+          <option value="memorable">Memorable</option>
+          <option value="passphrase">Passphrase</option>
+          <option value="pin">PIN</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bulk-card">
+      <div class="bulk-header">
+        <span>Bulk Generate</span>
+        <input type="number" id="bulk-count" value="10" min="1" max="100"/>
+        <button id="btn-bulk">Generate</button>
+        <button id="btn-bulk-copy">Copy All</button>
+      </div>
+      <div id="bulk-list" class="bulk-list"></div>
+    </div>
+
+    <div class="history-card">
+      <div class="history-header"><span>History</span><button id="btn-clear-history">Clear</button></div>
+      <div id="history-list" class="history-list"></div>
+    </div>
+  </div>
+</div>
+<script src="src/generator.js"></script>
+<script src="src/strength.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
